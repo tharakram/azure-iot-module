@@ -13,10 +13,10 @@ node {
   }
 
   stage('Build') {
-    azureIoTEdgePush dockerRegistryType: 'acr', acrName: 'zhiqing', bypassModules: '', azureCredentialsId: 'azuresp', resourceGroup: 'iotedge-jenkins-automation-test', rootPath: './'
+    azureIoTEdgePush dockerRegistryType: 'acr', acrName: 'tharak', bypassModules: '', azureCredentialsId: 'az-tharak-service-principal', resourceGroup: 'iot-hub-tharak-rg', rootPath: './'
   }
 
   stage('Deploy') {
-    azureIoTEdgeDeploy azureCredentialsId: 'azuresp', deploymentId: 'jenkins-pipeline-deploy', deploymentType: 'single', deviceId: '123', iothubName: 'jenkins-test', priority: '0', resourceGroup: 'iotedge-jenkins-automation-test', rootPath: './', targetCondition: ''
+    azureIoTEdgeDeploy azureCredentialsId: 'az-tharak-service-principal', deploymentId: 'jenkins-iot-pipeline', deploymentType: 'single', deviceId: 't-rpr-4', iothubName: 'iot-hub-tharak-one', priority: '0', resourceGroup: 'iot-hub-tharak-rg', rootPath: './', targetCondition: ''
   }
 }
